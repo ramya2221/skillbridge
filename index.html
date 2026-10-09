@@ -1,0 +1,1114 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="SkillBridge connects college students with individuals and small businesses for affordable, short-term projects.">
+  <title>SkillBridge | Student Marketplace</title>
+
+  <style>
+    :root {
+      --blue: #365bd5;
+      --dark-blue: #2445b5;
+      --navy: #1f2d46;
+      --light-blue: #edf2ff;
+      --background: #f7f9fc;
+      --white: #ffffff;
+      --text: #344054;
+      --muted: #667085;
+      --border: #e2e8f0;
+      --green: #12805c;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 90px;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--text);
+      background: var(--white);
+      line-height: 1.6;
+    }
+
+    a {
+      color: var(--blue);
+    }
+
+    button, input, select, textarea {
+      font: inherit;
+    }
+
+    button, .button {
+      cursor: pointer;
+    }
+
+    .container {
+      width: min(1120px, 90%);
+      margin: auto;
+    }
+
+    /* Navigation */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255, 255, 255, 0.97);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .navbar {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      color: var(--blue);
+      font-size: 27px;
+      font-weight: 800;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .brand svg {
+      width: 38px;
+      height: 38px;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      flex-wrap: wrap;
+      gap: 24px;
+    }
+
+    nav a {
+      color: var(--navy);
+      text-decoration: none;
+      font-size: 15px;
+      font-weight: 600;
+    }
+
+    nav a:hover {
+      color: var(--blue);
+    }
+
+    /* Buttons */
+    .button {
+      display: inline-block;
+      padding: 13px 22px;
+      border: 2px solid var(--blue);
+      border-radius: 9px;
+      background: var(--blue);
+      color: var(--white);
+      text-decoration: none;
+      font-weight: 700;
+      text-align: center;
+      transition: 0.2s ease;
+    }
+
+    .button:hover {
+      background: var(--dark-blue);
+      border-color: var(--dark-blue);
+      transform: translateY(-1px);
+    }
+
+    .button-outline {
+      background: transparent;
+      color: var(--blue);
+    }
+
+    .button-outline:hover {
+      color: var(--white);
+    }
+
+    /* Hero */
+    .hero {
+      background: linear-gradient(135deg, #edf2ff, #f5f7ff);
+      padding: 100px 20px 95px;
+      text-align: center;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      color: var(--blue);
+      background: #dfe7ff;
+      border-radius: 30px;
+      padding: 7px 15px;
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      max-width: 850px;
+      margin: 0 auto 20px;
+      color: var(--navy);
+      font-size: clamp(36px, 5vw, 59px);
+      line-height: 1.12;
+      letter-spacing: -1.5px;
+    }
+
+    .hero p {
+      max-width: 720px;
+      margin: 0 auto 28px;
+      font-size: 18px;
+      color: var(--text);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 14px;
+    }
+
+    .hero-note {
+      margin-top: 25px !important;
+      margin-bottom: 0 !important;
+      color: var(--muted) !important;
+      font-size: 13px !important;
+    }
+
+    /* General sections */
+    section {
+      padding: 76px 0;
+      scroll-margin-top: 75px;
+    }
+
+    .section-heading {
+      text-align: center;
+      max-width: 720px;
+      margin: 0 auto 38px;
+    }
+
+    .section-heading h2 {
+      color: var(--navy);
+      font-size: clamp(27px, 4vw, 36px);
+      margin-bottom: 10px;
+      line-height: 1.25;
+    }
+
+    .section-heading p {
+      color: var(--muted);
+    }
+
+    .soft-section {
+      background: var(--background);
+    }
+
+    /* Cards */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 22px;
+    }
+
+    .card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 15px;
+      padding: 27px;
+      box-shadow: 0 5px 18px rgba(31, 45, 70, 0.035);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 25px rgba(31, 45, 70, 0.08);
+    }
+
+    .card h3 {
+      color: var(--blue);
+      font-size: 20px;
+      margin: 12px 0 9px;
+    }
+
+    .card p {
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .card-icon {
+      width: 49px;
+      height: 49px;
+      display: grid;
+      place-items: center;
+      border-radius: 12px;
+      background: var(--light-blue);
+      color: var(--blue);
+      font-size: 25px;
+    }
+
+    .step-number {
+      display: inline-grid;
+      place-items: center;
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: var(--blue);
+      color: var(--white);
+      font-weight: 800;
+    }
+
+    /* About */
+    .about-content {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 42px;
+      align-items: center;
+    }
+
+    .about-content h2 {
+      font-size: 34px;
+      color: var(--navy);
+      line-height: 1.25;
+      margin-bottom: 18px;
+    }
+
+    .about-content p {
+      color: var(--muted);
+      margin-bottom: 14px;
+    }
+
+    .about-panel {
+      padding: 30px;
+      background: var(--light-blue);
+      border-radius: 18px;
+    }
+
+    .about-panel h3 {
+      color: var(--navy);
+      margin-bottom: 14px;
+    }
+
+    .about-panel li {
+      list-style: none;
+      margin: 12px 0;
+      color: var(--text);
+    }
+
+    .check {
+      color: var(--green);
+      font-weight: 800;
+      margin-right: 8px;
+    }
+
+    /* Projects */
+    .tag {
+      display: inline-block;
+      padding: 5px 10px;
+      margin-top: 16px;
+      border-radius: 20px;
+      background: var(--light-blue);
+      color: var(--blue);
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .project-label {
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+    }
+
+    .demo-note {
+      text-align: center;
+      color: var(--muted);
+      font-size: 13px;
+      margin-top: 23px;
+    }
+
+    /* Registration and contact forms */
+    .form-layout {
+      display: grid;
+      grid-template-columns: 0.8fr 1.2fr;
+      gap: 40px;
+      align-items: start;
+    }
+
+    .form-intro h2 {
+      color: var(--navy);
+      font-size: 33px;
+      line-height: 1.25;
+      margin-bottom: 15px;
+    }
+
+    .form-intro p {
+      color: var(--muted);
+      margin-bottom: 20px;
+    }
+
+    .contact-details {
+      margin-top: 22px;
+      padding: 20px;
+      background: var(--light-blue);
+      border-radius: 12px;
+      overflow-wrap: anywhere;
+    }
+
+    .contact-details p {
+      margin: 8px 0;
+    }
+
+    .form-box {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 28px;
+      box-shadow: 0 8px 25px rgba(31, 45, 70, 0.05);
+    }
+
+    .form-box h3 {
+      color: var(--navy);
+      margin-bottom: 20px;
+      font-size: 23px;
+    }
+
+    .form-group {
+      margin-bottom: 17px;
+    }
+
+    .form-group label {
+      display: block;
+      color: var(--navy);
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 7px;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      min-height: 46px;
+      padding: 12px 13px;
+      border: 1px solid #cbd5e1;
+      border-radius: 8px;
+      background: var(--white);
+      color: var(--text);
+      outline: none;
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 105px;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--blue);
+      box-shadow: 0 0 0 3px rgba(54, 91, 213, 0.12);
+    }
+
+    .form-box .button {
+      width: 100%;
+    }
+
+    .form-message {
+      margin-top: 15px;
+      font-size: 14px;
+      color: var(--green);
+      overflow-wrap: anywhere;
+    }
+
+    /* Call to action */
+    .cta {
+      background: var(--navy);
+      color: var(--white);
+      text-align: center;
+      padding: 65px 20px;
+    }
+
+    .cta h2 {
+      font-size: clamp(27px, 4vw, 36px);
+      margin-bottom: 12px;
+    }
+
+    .cta p {
+      color: #d5dcec;
+      max-width: 620px;
+      margin: 0 auto 25px;
+    }
+
+    /* Footer */
+    footer {
+      background: #172238;
+      color: #d5dcec;
+      padding: 28px 0;
+    }
+
+    .footer-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .footer-brand {
+      color: var(--white);
+      font-size: 20px;
+      font-weight: 800;
+    }
+
+    footer p {
+      font-size: 13px;
+    }
+
+    footer a {
+      color: #d5dcec;
+      text-decoration: none;
+    }
+
+    /* Responsive design */
+    @media (max-width: 850px) {
+      .navbar {
+        padding: 15px 0;
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      nav {
+        justify-content: flex-start;
+        gap: 15px 20px;
+      }
+
+      .hero {
+        padding: 75px 18px;
+      }
+
+      .grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .about-content,
+      .form-layout {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .container {
+        width: 92%;
+      }
+
+      .brand {
+        font-size: 24px;
+      }
+
+      .brand svg {
+        width: 34px;
+        height: 34px;
+      }
+
+      nav {
+        gap: 12px 16px;
+      }
+
+      nav a {
+        font-size: 13px;
+      }
+
+      .hero {
+        padding: 60px 15px;
+      }
+
+      .hero p {
+        font-size: 16px;
+      }
+
+      .hero-actions {
+        flex-direction: column;
+      }
+
+      .hero-actions .button {
+        width: 100%;
+      }
+
+      section {
+        padding: 55px 0;
+      }
+
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      .card,
+      .form-box {
+        padding: 22px;
+      }
+
+      .about-content h2,
+      .form-intro h2 {
+        font-size: 29px;
+      }
+
+      .footer-content {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <header>
+    <div class="container navbar">
+      <a href="#home" class="brand" aria-label="SkillBridge home">
+        <svg viewBox="0 0 48 48" fill="none"
+          xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M5 36H43M9 36V24M39 36V24M9 24C17 7 31 7 39 24M15 36V28M33 36V28M5 24H43"
+            stroke="currentColor" stroke-width="3.5"
+            stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span>SkillBridge</span>
+      </a>
+
+      <nav aria-label="Main navigation">
+        <a href="#home">Home</a>
+        <a href="#how-it-works">How It Works</a>
+        <a href="#students">Students</a>
+        <a href="#projects">Projects</a>
+        <a href="#businesses">Businesses</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- Hero -->
+    <section class="hero" id="home">
+      <div class="container">
+        <span class="eyebrow">Skills • Projects • Experience</span>
+        <h1>Skills Meet Opportunities</h1>
+        <p>
+          SkillBridge connects talented college students with individuals
+          and small businesses that need affordable help with short-term
+          projects.
+        </p>
+
+        <div class="hero-actions">
+          <a class="button" href="#student-registration">I'm a Student</a>
+          <a class="button button-outline" href="#businesses">I Need Help</a>
+        </div>
+
+        <p class="hero-note">
+          A student marketplace concept designed to connect skills with real needs.
+        </p>
+      </div>
+    </section>
+
+    <!-- How it works -->
+    <section id="how-it-works">
+      <div class="container">
+        <div class="section-heading">
+          <h2>How SkillBridge Works</h2>
+          <p>
+            A simple way for students to showcase their skills and for
+            businesses to discover talent.
+          </p>
+        </div>
+
+        <div class="grid">
+          <article class="card">
+            <span class="step-number">1</span>
+            <h3>Create a Profile</h3>
+            <p>
+              Students describe their skills, interests, and experience
+              to showcase what they can do.
+            </p>
+          </article>
+
+          <article class="card">
+            <span class="step-number">2</span>
+            <h3>Explore Projects</h3>
+            <p>
+              Discover example project categories that match your
+              abilities and career interests.
+            </p>
+          </article>
+
+          <article class="card">
+            <span class="step-number">3</span>
+            <h3>Connect and Grow</h3>
+            <p>
+              Students and project owners can connect, collaborate,
+              and build practical experience.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Students -->
+    <section class="soft-section" id="students">
+      <div class="container">
+        <div class="section-heading">
+          <h2>Built for Student Growth</h2>
+          <p>
+            Turn what you learn in college into practical skills and
+            portfolio experience.
+          </p>
+        </div>
+
+        <div class="grid">
+          <article class="card">
+            <div class="card-icon" aria-hidden="true">✦</div>
+            <h3>Show Your Skills</h3>
+            <p>
+              Highlight your abilities in coding, design, writing,
+              data analysis, and other areas.
+            </p>
+          </article>
+
+          <article class="card">
+            <div class="card-icon" aria-hidden="true">⌕</div>
+            <h3>Find Projects</h3>
+            <p>
+              Explore project ideas and opportunities that fit your
+              skills and interests.
+            </p>
+          </article>
+
+          <article class="card">
+            <div class="card-icon" aria-hidden="true">↗</div>
+            <h3>Gain Experience</h3>
+            <p>
+              Build a portfolio, strengthen your confidence,
+              and prepare for future career opportunities.
+            </p>
+          </article>
+        </div>
+
+        <div style="text-align:center; margin-top:32px;">
+          <a href="#student-registration" class="button">
+            Register Your Interest
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects">
+      <div class="container">
+        <div class="section-heading">
+          <h2>Explore Project Opportunities</h2>
+          <p>
+            Here are examples of short-term tasks that students
+            could help with.
+          </p>
+        </div>
+
+        <div class="grid">
+          <article class="card">
+            <span class="project-label">Technology</span>
+            <h3>Website Development</h3>
+            <p>
+              Help create or improve a website for an individual
+              or a small business.
+            </p>
+            <span class="tag">HTML • CSS • JavaScript</span>
+          </article>
+
+          <article class="card">
+            <span class="project-label">Creative</span>
+            <h3>Graphic Design</h3>
+            <p>
+              Design posters, promotional materials, and social
+              media creatives.
+            </p>
+            <span class="tag">Design • Creativity</span>
+          </article>
+
+          <article class="card">
+            <span class="project-label">Communication</span>
+            <h3>Content Writing</h3>
+            <p>
+              Prepare blog posts, product descriptions, and
+              simple promotional content.
+            </p>
+            <span class="tag">Writing • Research</span>
+          </article>
+
+          <article class="card">
+            <span class="project-label">Data</span>
+            <h3>Data Analysis</h3>
+            <p>
+              Organize spreadsheets, summarize information,
+              and prepare simple reports.
+            </p>
+            <span class="tag">Excel • Data</span>
+          </article>
+
+          <article class="card">
+            <span class="project-label">Business Support</span>
+            <h3>Social Media Support</h3>
+            <p>
+              Help small businesses plan content and organize
+              their online presence.
+            </p>
+            <span class="tag">Social Media • Planning</span>
+          </article>
+
+          <article class="card">
+            <span class="project-label">Flexible Skills</span>
+            <h3>Research Assistance</h3>
+            <p>
+              Support basic research, information collection,
+              and document preparation.
+            </p>
+            <span class="tag">Research • Organization</span>
+          </article>
+        </div>
+
+        <p class="demo-note">
+          These are illustrative project examples for the website prototype,
+          not verified or currently available job listings.
+        </p>
+      </div>
+    </section>
+
+    <!-- Businesses -->
+    <section class="soft-section" id="businesses">
+      <div class="container">
+        <div class="section-heading">
+          <h2>For Individuals and Small Businesses</h2>
+          <p>
+            Find an approachable way to connect with students who
+            are eager to apply their skills.
+          </p>
+        </div>
+
+        <div class="grid">
+          <article class="card">
+            <div class="card-icon" aria-hidden="true">◎</div>
+            <h3>Access Emerging Talent</h3>
+            <p>
+              Discover students with different skills and fresh
+              perspectives for suitable short-term tasks.
+            </p>
+          </article>
+
+          <article class="card">
+            <div class="card-icon" aria-hidden="true">◇</div>
+            <h3>Get Flexible Support</h3>
+            <p>
+              Identify project needs and explore potential
+              collaborations based on your requirements.
+            </p>
+          </article>
+
+          <article class="card">
+            <div class="card-icon" aria-hidden="true">♡</div>
+            <h3>Support Student Growth</h3>
+            <p>
+              Give students an opportunity to practise their skills
+              and gain exposure to real-world needs.
+            </p>
+          </article>
+        </div>
+
+        <div style="text-align:center; margin-top:32px;">
+          <a href="#contact" class="button">Contact SkillBridge</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="about">
+      <div class="container about-content">
+        <div>
+          <span class="eyebrow">Our Vision</span>
+          <h2>Bridging the Gap Between Skills and Experience</h2>
+          <p>
+            Many college students have useful skills but limited
+            opportunities to build portfolios or gain practical experience.
+          </p>
+          <p>
+            At the same time, individuals and small businesses may need
+            affordable support for short-term tasks.
+          </p>
+          <p>
+            SkillBridge aims to bring these needs together through a
+            student-focused marketplace that encourages learning,
+            collaboration, and growth.
+          </p>
+        </div>
+
+        <div class="about-panel">
+          <h3>What SkillBridge Aims to Offer</h3>
+          <ul>
+            <li><span class="check">✓</span>Skill-based discovery</li>
+            <li><span class="check">✓</span>Practical project experience</li>
+            <li><span class="check">✓</span>Affordable project support</li>
+            <li><span class="check">✓</span>Portfolio development</li>
+            <li><span class="check">✓</span>Connections between students and clients</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Student registration -->
+    <section class="soft-section" id="student-registration">
+      <div class="container form-layout">
+        <div class="form-intro">
+          <span class="eyebrow">For Students</span>
+          <h2>Your Skills Deserve an Opportunity</h2>
+          <p>
+            Interested in SkillBridge? Fill out this demo registration
+            form to see how a student onboarding experience could look.
+          </p>
+          <p>
+            Share your area of interest and the skills you want to develop.
+          </p>
+
+          <div class="contact-details">
+            <h3>Have a Question?</h3>
+            <p>
+              Email:
+              <a href="mailto:skillbridge982@gmail.com">
+                skillbridge982@gmail.com
+              </a>
+            </p>
+            <p>
+              Phone:
+              <a href="tel:8247649699">8247649699</a>
+            </p>
+          </div>
+        </div>
+
+        <div class="form-box">
+          <h3>Student Registration</h3>
+
+          <form id="studentForm">
+            <div class="form-group">
+              <label for="studentName">Full Name *</label>
+              <input id="studentName" name="name" type="text"
+                placeholder="Enter your name" required>
+            </div>
+
+            <div class="form-group">
+              <label for="studentEmail">Email Address *</label>
+              <input id="studentEmail" name="email" type="email"
+                placeholder="Enter your email" required>
+            </div>
+
+            <div class="form-group">
+              <label for="studentCollege">College Name</label>
+              <input id="studentCollege" name="college" type="text"
+                placeholder="Enter your college name">
+            </div>
+
+            <div class="form-group">
+              <label for="studentSkill">Primary Skill *</label>
+              <select id="studentSkill" name="skill" required>
+                <option value="">Select a skill</option>
+                <option>Web Development</option>
+                <option>Artificial Intelligence / Machine Learning</option>
+                <option>Data Analysis</option>
+                <option>Graphic Design</option>
+                <option>Content Writing</option>
+                <option>Social Media</option>
+                <option>Other</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="studentAbout">Tell Us About Your Skills</label>
+              <textarea id="studentAbout" name="about"
+                placeholder="What can you do, or what would you like to learn?"
+              ></textarea>
+            </div>
+
+            <button class="button" type="submit">
+              Submit Registration Interest
+            </button>
+
+            <p id="studentMessage" class="form-message"
+              role="status" aria-live="polite"></p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+      <div class="container form-layout">
+        <div class="form-intro">
+          <span class="eyebrow">Get in Touch</span>
+          <h2>Let's Connect</h2>
+          <p>
+            Are you a student, an individual, or a small business
+            interested in the SkillBridge concept? Reach out to us.
+          </p>
+
+          <div class="contact-details">
+            <h3>SkillBridge Contact Details</h3>
+            <p>
+              <strong>Email:</strong><br>
+              <a href="mailto:skillbridge982@gmail.com">
+                skillbridge982@gmail.com
+              </a>
+            </p>
+            <p>
+              <strong>Phone:</strong><br>
+              <a href="tel:8247649699">8247649699</a>
+            </p>
+          </div>
+        </div>
+
+        <div class="form-box">
+          <h3>Send an Enquiry</h3>
+
+          <form id="contactForm">
+            <div class="form-group">
+              <label for="contactName">Your Name *</label>
+              <input id="contactName" name="name" type="text"
+                placeholder="Enter your name" required>
+            </div>
+
+            <div class="form-group">
+              <label for="contactEmail">Your Email *</label>
+              <input id="contactEmail" name="email" type="email"
+                placeholder="Enter your email" required>
+            </div>
+
+            <div class="form-group">
+              <label for="contactType">I am a *</label>
+              <select id="contactType" name="type" required>
+                <option value="">Select an option</option>
+                <option>Student</option>
+                <option>Individual looking for help</option>
+                <option>Small business owner</option>
+                <option>Other</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="contactMessage">Your Message *</label>
+              <textarea id="contactMessage" name="message"
+                placeholder="How can SkillBridge help you?"
+                required></textarea>
+            </div>
+
+            <button class="button" type="submit">Prepare Email</button>
+            <p id="contactStatus" class="form-message"
+              role="status" aria-live="polite"></p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- Call to action -->
+    <section class="cta">
+      <div class="container">
+        <h2>Every Skill Can Create an Opportunity</h2>
+        <p>
+          Build experience, explore possibilities, and help connect
+          student talent with real-world needs.
+        </p>
+        <a href="#student-registration" class="button">
+          Get Started with SkillBridge
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container footer-content">
+      <div class="footer-brand">SkillBridge</div>
+      <p>
+        Connecting student skills with project opportunities.
+      </p>
+      <p>
+        © <span id="year"></span> SkillBridge. All rights reserved.
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    // Display the current year.
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+
+    // Student registration demo.
+    // This validates the form but does not store or send the data.
+    document.getElementById("studentForm").addEventListener(
+      "submit",
+      function (event) {
+        event.preventDefault();
+
+        document.getElementById("studentMessage").textContent =
+          "Thank you for your interest! This demo form is not connected " +
+          "to a registration database yet.";
+
+        this.reset();
+      }
+    );
+
+    // Prepare an email from the contact form.
+    // This opens the visitor's email application; it does not send
+    // the message automatically.
+    document.getElementById("contactForm").addEventListener(
+      "submit",
+      function (event) {
+        event.preventDefault();
+
+        const name =
+          document.getElementById("contactName").value.trim();
+        const email =
+          document.getElementById("contactEmail").value.trim();
+        const type =
+          document.getElementById("contactType").value;
+        const message =
+          document.getElementById("contactMessage").value.trim();
+
+        const subject = encodeURIComponent(
+          "SkillBridge enquiry from " + name
+        );
+
+        const body = encodeURIComponent(
+          "Name: " + name + "\n" +
+          "Email: " + email + "\n" +
+          "Contact type: " + type + "\n\n" +
+          "Message:\n" + message
+        );
+
+        document.getElementById("contactStatus").textContent =
+          "Opening your email application. Please review and send your message.";
+
+        window.location.href =
+          "mailto:skillbridge982@gmail.com?subject=" +
+          subject + "&body=" + body;
+      }
+    );
+  </script>
+
+</body>
+</html>
+
+
